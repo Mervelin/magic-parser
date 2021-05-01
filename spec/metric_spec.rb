@@ -1,3 +1,5 @@
+require './lib/metric'
+
 describe Metric do
 
   subject(:metric) { Metric.new }
@@ -8,7 +10,7 @@ describe Metric do
     it 'increases the count of element' do
       metric.increment(element)
 
-      expect(metric.list).to eql { 'abc' => 1 }
+      expect(metric.list).to eql ({ 'abc' => 1 })
     end
   end
 end
