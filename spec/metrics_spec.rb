@@ -8,11 +8,19 @@ describe Metrics do
       '/about 1.1.1.1'
     ]}
 
-    describe '#popular_list' do
-      subject(:popular_list) { Metrics.new(entries).popular_list }
+    subject(:metrics) { Metrics.new(entries) }
 
+    describe '#popular_list' do
       it 'returns the total amount of every entry present' do
-        expect(popular_list["/home"]).to eql 2
+        expect(metrics.popular_list["/home"]).to eql 2
+        expect(metrics.popular_list["/about"]).to eql 1
+      end
+    end
+
+    describe '#unique_list' do
+      it 'returns the total amount of every unique entry' do
+        expect(metrics.unique_list["/home"]).to eql 1
+        expect(metrics.unique_list["/about"]).to eql 1
       end
     end
   end
