@@ -9,23 +9,19 @@ class Metrics
     @paths = {}
   end
 
-  def popular_list
+  def calculate
     entries.each do |line|
       entry = Entry.new(line)
-
       popular.increment(entry.url)
+      calculate_unique(entry)
     end
+  end
 
+  def popular_list
     popular.list
   end
 
   def unique_list
-    entries.each do |line|
-      entry = Entry.new(line)
-
-      calculate_unique(entry)
-    end
-
     unique.list
   end
 
