@@ -9,7 +9,7 @@ describe Metric do
     it 'increases the count of element' do
       metric.increment(element)
 
-      expect(metric.list).to eql ({ 'abc' => 1 })
+      expect(metric.list).to eql ({ element => 1 })
     end
   end
 
@@ -24,7 +24,7 @@ describe Metric do
     end
 
     it 'returns elements ordered descending based on value' do
-      expect(metric.order_descending).to eql ({ 'def' => 2, 'abc' => 1 })
+      expect(metric.order_descending).to eql ([[second_element, 2], [first_element, 1]])
     end
   end
 end
