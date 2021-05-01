@@ -1,3 +1,5 @@
+require './lib/metrics'
+
 describe Metrics do
   context 'when entries provided' do
     let(:entries) { [
@@ -7,10 +9,10 @@ describe Metrics do
     ]}
 
     describe '#popular_list' do
-      subject(:popular) { Metrics.new(entries).popular }
+      subject(:popular_list) { Metrics.new(entries).popular_list }
 
       it 'returns the total amount of every entry present' do
-        expect(popular["/home"]).to eql 2
+        expect(popular_list["/home"]).to eql 2
       end
     end
   end
