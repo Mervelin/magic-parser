@@ -12,19 +12,4 @@ describe Metric do
       expect(metric.list).to eql ({ element => 1 })
     end
   end
-
-  describe '#order_descending' do
-    let(:first_element) { 'abc' }
-    let(:second_element) { 'def' }
-
-    before do
-      metric.increment(first_element)
-      metric.increment(second_element)
-      metric.increment(second_element)
-    end
-
-    it 'returns elements ordered descending based on value' do
-      expect(metric.order_descending).to eql ([[second_element, 2], [first_element, 1]])
-    end
-  end
 end

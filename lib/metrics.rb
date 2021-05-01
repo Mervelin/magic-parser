@@ -27,9 +27,12 @@ class Metrics
 
   private
 
-  attr_reader :entries, :popular, :unique, :paths
+  attr_reader :entries, :popular, :unique
+  attr_accessor :paths
 
   def calculate_unique(entry)
+    
+    
     return if path_visited?(entry)
 
     unique.increment(entry.url)

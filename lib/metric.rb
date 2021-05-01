@@ -9,8 +9,4 @@ class Metric
   def increment(element)
     list[element] += 1
   end
-  
-  def order_descending
-    list.sort_by { |_k, v| v }.reverse
-  end
 end
