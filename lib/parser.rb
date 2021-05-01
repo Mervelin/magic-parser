@@ -6,6 +6,6 @@ class Parser
   attr_reader :path
 
   def entries
-    File.readlines(path)
+    File.readlines(path).map(&:chomp)
   end
 end

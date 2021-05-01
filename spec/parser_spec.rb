@@ -6,11 +6,11 @@ describe Parser do
 
     describe '#entries' do
       subject(:entries) { Parser.new(path).entries }
-      it 'retrieves entries from File' do
+      it 'retrieves entries from file' do
         expect(entries.first).to eql '/home 1.1.1.1'
       end
 
-      it 'returns entries without newline characters' do
+      it 'returns entries without newline character' do
         expect(entries.first).not_to include "\n"
       end
     end
