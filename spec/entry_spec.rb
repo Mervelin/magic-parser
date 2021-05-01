@@ -1,6 +1,8 @@
+require './lib/entry'
+
 describe Entry do
   context 'when provided with proper line from log file' do
-    path(:line) { '/home 1.1.1.1' }
+    let(:line) { '/home 1.1.1.1' }
 
     subject(:entry) { Entry.new(line) }
 
