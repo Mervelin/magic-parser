@@ -10,6 +10,10 @@ describe Metrics do
 
     subject(:metrics) { Metrics.new(entries) }
 
+    before do
+      metrics.calculate
+    end
+
     describe '#popular_list' do
       it 'returns the total amount of every entry present' do
         popular_list = metrics.popular_list
